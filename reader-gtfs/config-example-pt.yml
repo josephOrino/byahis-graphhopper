@@ -1,8 +1,8 @@
 graphhopper:
-  datareader.file: brandenburg-latest.osm.pbf
-  # for multiple files you can use: gtfs.file: file1.zip,file2.zip,file3.zip
-  gtfs.file: gtfs-vbb.zip
-  graph.location: graphs/brandenburg-with-transit
+  datareader.file: batangas.pbf
+  gtfs.file: gtfs.zip
+  # Local folder used by graphhopper to store its data
+  graph.location: graph-cache
 
   profiles:
     - name: foot
@@ -12,14 +12,14 @@ graphhopper:
       #  - foot_elevation.json
 
   import.osm.ignored_highways: motorway,trunk
-  graph.encoded_values: foot_access, foot_average_speed, foot_priority, foot_road_access, hike_rating, mtb_rating, country, road_class
+  graph.encoded_values: foot_access, foot_average_speed, foot_priority, foot_road_access, hike_rating, mtb_rating, country, road_class, road_environment
 
 server:
   application_connectors:
     - type: http
       port: 8989
-      bind_host: localhost
+      bind_host: 0.0.0.0
   admin_connectors:
     - type: http
       port: 8990
-      bind_host: localhost
+      bind_host: 0.0.0.0
